@@ -1,0 +1,22 @@
+[gd_scene load_steps=6 format=3 uid="uid://0cdhoxffqqvw"]
+
+[ext_resource type="Script" path="res://World/logic.gd" id="1_igh15"]
+[ext_resource type="PackedScene" uid="uid://du0lx2ybfwxlk" path="res://Player/Player.tscn" id="2_vlntx"]
+[ext_resource type="PackedScene" uid="uid://di6xew45rxwo1" path="res://Bots/melee.tscn" id="3_le7w2"]
+[ext_resource type="PackedScene" uid="uid://bfcn6onlg1bi3" path="res://World/wall.tscn" id="4_pap60"]
+[ext_resource type="PackedScene" uid="uid://4m8hpexa03we" path="res://Bots/ranged.tscn" id="5_wxhad"]
+
+[node name="World" type="Node2D"]
+script = ExtResource("1_igh15")
+
+[node name="Player" parent="." instance=ExtResource("2_vlntx")]
+position = Vector2(320, 320)
+
+[node name="Melee" parent="." instance=ExtResource("3_le7w2")]
+position = Vector2(640, 320)
+
+[node name="Wall" parent="." instance=ExtResource("4_pap60")]
+position = Vector2(480, 320)
+
+[node name="Ranged" parent="." instance=ExtResource("5_wxhad")]
+position = Vector2(640, 64)

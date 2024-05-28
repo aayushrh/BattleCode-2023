@@ -1,0 +1,25 @@
+[gd_scene load_steps=4 format=3 uid="uid://dwpx5ppq2ofbd"]
+
+[ext_resource type="Script" path="res://Bots/Arrow.gd" id="1_eq7sp"]
+[ext_resource type="Texture2D" uid="uid://cr438qvjbasn1" path="res://icon.svg" id="2_xebw7"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_omaer"]
+radius = 6.0
+
+[node name="Arrow" type="CharacterBody2D" node_paths=PackedStringArray("timer")]
+script = ExtResource("1_eq7sp")
+timer = NodePath("Timer")
+
+[node name="Timer" type="Timer" parent="."]
+one_shot = true
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+shape = SubResource("CircleShape2D_omaer")
+
+[node name="Icon" type="Sprite2D" parent="."]
+scale = Vector2(0.1, 0.1)
+texture = ExtResource("2_xebw7")
+
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
